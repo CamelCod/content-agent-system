@@ -67,17 +67,13 @@ class ArticleAgent:
         else:
             context = "No context available."
             
-        # Select random signature phrase
-        signature_phrase = random.choice(SIGNATURE_PHRASES)
-        
         # Format prompt
         prompt = ARTICLE_PROMPT.format(
             core_thesis=CORE_THESIS,
             topic=topic,
             lens=lens,
             objective=objective,
-            context=context,
-            signature_phrase=signature_phrase
+            context=context
         )
         
         # Generate content

@@ -2,7 +2,6 @@
 
 import os
 from typing import List, Optional
-from pathlib import Path
 
 from langchain_community.embeddings import HuggingFaceEmbeddings
 from langchain_community.vectorstores import Chroma
