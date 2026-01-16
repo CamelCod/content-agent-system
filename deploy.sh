@@ -48,12 +48,12 @@ mkdir -p knowledge_bases/examples/blog_samples
 mkdir -p knowledge_bases/examples/article_samples
 mkdir -p vector_stores
 
-# Check for API key
+# Check for API key (verify placeholder has been replaced)
 if ! grep -q "your_openrouter_api_key_here" .env; then
-    echo "✓ API key configured"
+    echo "✓ API key appears to be configured (placeholder replaced)"
 else
-    echo "⚠️  Warning: OPENROUTER_API_KEY not set in .env"
-    echo "   Get your key from: https://openrouter.ai/keys"
+    echo "⚠️  Warning: OPENROUTER_API_KEY still contains placeholder in .env"
+    echo "   Please replace with your actual key from: https://openrouter.ai/keys"
 fi
 
 echo ""
