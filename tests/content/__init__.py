@@ -1,0 +1,1 @@
+"""Test content package initialization."""
