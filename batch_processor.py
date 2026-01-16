@@ -1,7 +1,6 @@
 """Batch content processor with calendar integration."""
 
 import json
-import os
 from datetime import datetime
 from typing import Dict, List, Optional
 

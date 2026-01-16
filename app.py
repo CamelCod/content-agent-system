@@ -1,10 +1,8 @@
 """Streamlit web UI for content agent system."""
 
 import streamlit as st
-import json
-import os
 from datetime import datetime
-from typing import Dict, List
+from typing import Dict
 
 from agents.linkedin_agent import LinkedInAgent
 from agents.blog_agent import BlogAgent
@@ -163,8 +161,14 @@ def linkedin_post_generator():
         ]
         
         selected = st.selectbox("Select Calendar Entry", calendar_options)
-        post_number = int(selected.split()[1]) - 1  # Index in array
-        entry = CONTENT_CALENDAR[post_number]
+        selected_post_number = int(selected.split()[1])
+        entry = next(
+            (e for e in CONTENT_CALENDAR if e.get("post_number") == selected_post_number),
+            None,
+        )
+        if entry is None:
+            st.error("Selected calendar entry could not be found. Please check the content calendar configuration.")
+            return
         
         # Show details
         col1, col2 = st.columns(2)
