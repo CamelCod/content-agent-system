@@ -51,7 +51,11 @@ class ValidatorAgent:
             Tuple of (score, feedback, word_count)
         """
         # Quick checks for banned elements
-        # Use a more robust emoji detection pattern
+        # Use a more robust emoji detection pattern covering common Unicode blocks:
+        # - Miscellaneous Symbols and Pictographs (U+1F300-U+1F9FF)
+        # - Emoticons (U+1F600-U+1F64F)
+        # - Transport and Map Symbols (U+1F680-U+1F6FF)
+        # - Miscellaneous Symbols (U+2600-U+27BF)
         emoji_pattern = r'[\U0001F300-\U0001F9FF]|[\U0001F600-\U0001F64F]|[\U0001F680-\U0001F6FF]|[\U00002600-\U000027BF]'
         has_emoji = bool(re.search(emoji_pattern, content))
         ends_with_question = content.strip().endswith('?')
