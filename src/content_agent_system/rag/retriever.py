@@ -1,6 +1,6 @@
 """Retriever for fetching relevant documents from knowledge base."""
 
-from typing import Any, Dict, List, Optional
+from typing import Any, Dict, List, Optional, Tuple
 
 from content_agent_system.rag.knowledge_base import Document, KnowledgeBase
 
@@ -33,7 +33,7 @@ class Retriever:
 
     def retrieve_with_scores(
         self, query: str, top_k: int = 5
-    ) -> List[tuple[Document, float]]:
+    ) -> List[Tuple[Document, float]]:
         """Retrieve documents with relevance scores.
 
         Args:
